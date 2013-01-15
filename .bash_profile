@@ -3,6 +3,7 @@ export PS1="\[\033[0;37m\] \w \[\033[31m\]\`ruby -e \"print (%x{git branch 2> /d
 
 # Aliases
 alias reporoot='cd $(git rev-parse --show-toplevel)'
+alias resetOpenWith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder'
 
 # Git completion
 source ~/bin/git-completion.bash
