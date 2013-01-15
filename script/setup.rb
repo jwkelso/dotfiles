@@ -55,8 +55,8 @@ def copy_files
   FileUtils.cp '.bash_profile', ENV['HOME']+'/.bash_profile'
   FileUtils.cp '.gitconfig', ENV['HOME']+'/.gitconfig'
   FileUtils.cp '.gitignore_global', ENV['HOME']+'/.gitignore_global'
-  FileUtils.cp '.vimrc', ENV['HOME']+'/.vimrc'
   FileUtils.cp_r 'bin', ENV['HOME']+'/', :remove_destination => true
+  FileUtils.cp '.lldbinit', ENV['HOME']+'/.lldbinit'
 end
 
 # do all the magic
