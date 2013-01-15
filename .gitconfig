@@ -25,16 +25,22 @@
 [branch]
         autosetuprebase = always
 
-# This is my MergeTool and DiffTool setup. I use diffmerge. If you don't, you should update this.
-# You can get DiffMerge at http://www.sourcegear.com/diffmerge/downloads.php
+# This is my MergeTool and DiffTool setup. I use P4Merge. If you don't, you should update this.
+# You can get P4Merge at http://info.perforce.com/free.html
 [merge]
-	tool = diffmerge
-        keepBackup=false
-[diff]
-        external = diffmerge
-	tool = diffmerge
-[difftool "diffmerge"]
-	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
-[mergetool "diffmerge"]
-	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+	keepBackup = false
+	tool = custom
+[mergetool "custom"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$PWD/$BASE\"" "\"$PWD/$REMOTE\"" "\"$PWD/$LOCAL\"" "\"$PWD/$MERGED\""
+	keepTemporaries = false
 	trustExitCode = true
+	keepBackup = false
+[diff]
+        external = custom
+	tool = custom
+[difftool "custom"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
