@@ -26,6 +26,7 @@
         autosetuprebase = always
 
 # This is my MergeTool and DiffTool setup. I use diffmerge. If you don't, you should update this.
+# You can get DiffMerge at http://www.sourcegear.com/diffmerge/downloads.php
 [merge]
 	tool = diffmerge
         keepBackup=false
