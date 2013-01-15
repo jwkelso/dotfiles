@@ -11,8 +11,8 @@ git clone https://github.com/jwkelso/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ruby script/setup.rb
 ```
-
-This will copy the dotfiles into your home directory so that everything is set up nicely. Heads up: it is destructive. That means it will overwrite any of your current dotfiles with conflicting names.
+Each managed file is symlinked to a corresponding file in ~/.dotfiles. The symlinks are added to your home directory so that everything is set up nicely. 
+Heads up: it is destructive. That means it will overwrite any of your current dotfiles with conflicting names.
 
 ##.gitconfig
 
