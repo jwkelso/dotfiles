@@ -1,13 +1,13 @@
 #Dotfiles
 
-These are my dotfiles. Many of these settings work best with the OS X Homebrew terminal theme.
+These are my dotfiles. Mine work best on a dark terminal background.
 
 ##Setup
 
 Run this:
 
 ```sh
-git clone https://github.com/hodgesmr/dotfiles.git ~/.dotfiles
+git clone https://github.com/jwkelso/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ruby script/setup.rb
 ```
@@ -22,6 +22,7 @@ Since you're not me, you probably want to update the name and email values in .g
 
 If you want to add or update your dotfiles, do so in `~/.dotfiles` and then rerun the setup script. If you add new files, don't forget to add them to the script. This will make sure everything stays synced.
 
-##A Matt Hodges project
+##This is the James Kelso flavor of a Matt Hodges project
 
-Made by [@hodgesmr](http://twitter.com/hodgesmr).
+This project was forked by [@jwkelso](http://twitter.com/jwkelso).
+Originally made by [@hodgesmr](http://twitter.com/hodgesmr).
