@@ -1,19 +1,39 @@
 # You probably want to change the [user] section here since you are not me.
-
 [user]
-	name = Matt Hodges
-	email = hodgesmr1@gmail.com
+	name = James Kelso
+	email = james.w.kelso@gmail.com
 [core]
-    excludesfile = ~/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [alias]
-    alias = config --get-regexp 'alias.*'
-    lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %n' --abbrev-commit
-    new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
-    today = log --since='8am' --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %n' --abbrev-commit
-    thisweek = log --since='last monday' --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %n' --abbrev-commit
-    wtf = !ruby  ~/bin/git-wtf -r
-    updatetags = !git tag -l | xargs git tag -d && git fetch
-    doesnthave = !sh -c \"git branch -a | grep -vF \\\"$(git branch -a --contains HEAD)\\\"\" #shows branches that don't have current branch merged in to 
-    pullall = !git pull --rebase && B=$(git rev-parse --abbrev-ref HEAD) && git branch -r | sed -e 's/origin\\///g' | grep -v $B | grep -v HEAD | xargs -L 1 -I %  sh -c "'{ git checkout %; git pull --rebase; }'" && git checkout $B
+	
+	#Show all git aliases
+	alias = config --get-regexp 'alias.*'
+	
+	#Create a changelog out of commits since branch was created
+	changelog = !sh -c \"git log --pretty=%s --first-parent\"
+	
+	#Prune branches not on origin
+	prunebranches = !sh -c \"git remote prune origin\"
+	
+	#Prune tags not on origin (also updates tags in case an update was pushed by someone else
+	prunetags = !git tag -l | xargs git tag -d && git fetch
+	
+	#Update all branches
+	pullall = !git pull --rebase && B=$(git rev-parse --abbrev-ref HEAD) && git branch -r | sed -e 's/origin\\///g' | grep -v $B | grep -v HEAD | xargs -L 1 -I %  sh -c "'{ git checkout %; git pull --rebase; }'" && git checkout $B
 [color]
-    ui = true
+        ui = true
+[branch]
+        autosetuprebase = always
+
+# This is my MergeTool and DiffTool setup. I use diffmerge. If you don't, you should update this.
+[merge]
+	tool = diffmerge
+        keepBackup=false
+[diff]
+        external = diffmerge
+	tool = diffmerge
+[difftool "diffmerge"]
+	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[mergetool "diffmerge"]
+	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+	trustExitCode = true
