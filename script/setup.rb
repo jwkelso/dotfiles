@@ -24,7 +24,7 @@ end
 
 # Overwrite git settings
 def overwrite_git_settings
-    File.open('.gitconfig', 'r+') do |f|
+    File.open('../../.gitconfig', 'r+') do |f|
         out = ""
         f.each do |line|
             if line.include? "name = "
@@ -56,6 +56,7 @@ def link_files
     FileUtils.ln_s ENV['HOME']+'/.dotfiles/.gitconfig', ENV['HOME']+'/.gitconfig', :force => true
     FileUtils.ln_s ENV['HOME']+'/.dotfiles/.gitignore_global', ENV['HOME']+'/.gitignore_global', :force => true
     FileUtils.ln_s ENV['HOME']+'/.dotfiles/.lldbinit', ENV['HOME']+'/.lldbinit', :force => true
+    FileUtils.ln_s ENV['HOME']+'/.dotfiles/.inputrc', ENV['HOME']+'/.inputrc', :force => true
     
     # directories are a bitch...
     FileUtils.remove_dir ENV['HOME']+'/bin', true
