@@ -3,3 +3,6 @@ command regex rd 's/^[[:space:]]*$/po [[[UIApplication sharedApplication] keyWin
 
 # Creates the sp command for use when debugging in LLDB. It shows the contents of a CGPathRef
 command regex sp 's/(.+)/print (void)CGPathPrint(%1, 0)/'
+
+# Creates the alt command for use when debugging in LLDB. It prints an auto layout trace of any view object
+command regex alt 's/^[[:space:]]*$/po [[[UIApplication sharedApplication] keyWindow] _autolayoutTrace]/' 's/^(.+)$/po [%1 _autolayoutTrace]/'
