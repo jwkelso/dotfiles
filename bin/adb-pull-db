@@ -1,0 +1,7 @@
+#!/bin/sh
+PACKAGE_NAME="$1"
+DATABASE_NAME="$2"
+ADB_COMMAND="run-as $PACKAGE_NAME chmod 777 databases databases/$DATABASE_NAME;exit;exit;"
+
+adb shell $ADB_COMMAND
+adb pull "/data/data/$PACKAGE_NAME/databases/$DATABASE_NAME" ~/Desktop
