@@ -9,3 +9,7 @@ alias xmlformat='xmllint --format -'
 
 # Git completion
 source ~/bin/git-completion.bash
+
+# Load ADB into Path
+export PATH=$PATH:/Developer-Java/adt-bundle-mac-x86_64-20130522/sdk/platform-tools/
+export PATH=$PATH:/Developer-Java/adt-bundle-mac-x86_64-20130522/sdk/tools
