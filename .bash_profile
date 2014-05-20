@@ -11,5 +11,13 @@ alias xmlformat='xmllint --format -'
 source ~/bin/git-completion.bash
 
 # Load ADB into Path
-export PATH=$PATH:/Developer-Java/adt-bundle-mac-x86_64-20130522/sdk/platform-tools/
-export PATH=$PATH:/Developer-Java/adt-bundle-mac-x86_64-20130522/sdk/tools
+export PATH=$PATH:/Applications/Android\ Studio\ -\ Stable.app/sdk/platform-tools
+export PATH=$PATH:/Applications/Android\ Sutdio\ -\ Stable.app/sdk/tools
+
+# Load MySQL into Path
+MYSQL=/usr/local/mysql/bin
+export PATH=$PATH:$MYSQL
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+
+# Load scripts in ~/bin
+export PATH=$PATH:~/bin
