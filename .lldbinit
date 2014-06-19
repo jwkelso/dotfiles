@@ -6,3 +6,9 @@ command regex sp 's/(.+)/print (void)CGPathPrint(%1, 0)/'
 
 # Creates the alt command for use when debugging in LLDB. It prints an auto layout trace of any view object
 command regex alt 's/^[[:space:]]*$/po [[[UIApplication sharedApplication] keyWindow] _autolayoutTrace]/' 's/^(.+)$/po [%1 _autolayoutTrace]/'
+
+# Allows use of thread_return.py script to print the return value of the last function you stepped out from. This is very useful if the return was a complex expression. This lldb command prevents you from needing to create a temporary variable just to inspect the return value'''
+command script import ~/.dotfiles/bin/thread_return.py
+
+# Allows use of block_disass command to disassemble a block variable in the debugger
+command script import ~/.dotfiles/bin/block.py
