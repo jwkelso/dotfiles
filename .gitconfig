@@ -1,7 +1,7 @@
 # You probably want to change the [user] section here since you are not me.
 [user]
 	name = James Kelso
-	email = james.w.kelso@gmail.com
+	email = jkelso@cardinalsolutions.com
 [core]
 	excludesfile = ~/.gitignore_global
 [alias]

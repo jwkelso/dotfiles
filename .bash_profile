@@ -11,17 +11,13 @@ alias xmlformat='xmllint --format -'
 source ~/bin/git-completion.bash
 
 # Load ADB into Path
-export PATH=$PATH:/Developer-Java/Android\ SDK/platform-tools
-export PATH=$PATH:/Developer-Java/Android\ SDK/tools
+export PATH=$PATH:~/Library/Android/sdk/platform-tools
+export PATH=$PATH:~/Library/Android/sdk/tools
+export PATH=$PATH:~/Library/Android/sdk/build-tools/22.0.1
 
-# Load MySQL into Path
-MYSQL=/usr/local/mysql/bin
-export PATH=$PATH:$MYSQL
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
-
-# Load Maven into Path
-export M2_HOME=/Developer-Java/apache-maven-3.2.5
-export PATH=$PATH:$M2_HOME/bin
+# Load NVM into Path
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 # Load scripts in ~/bin
 export PATH=$PATH:~/bin
